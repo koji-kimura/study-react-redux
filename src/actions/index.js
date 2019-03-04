@@ -15,3 +15,14 @@ export const minus = num => {
     }
   };
 };
+
+export const AsyncMinus = num => {
+  setTimeout(() => {
+    return {
+      type: "MINUS",
+      payload: {
+        num: num
+      }
+    };
+  }, 1000);
+};

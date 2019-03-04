@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 import { Provider } from "react-redux";
+import App from "./contaners/App";
 
-import App from "./containers/App";
+const middleWares = [thunk];
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(...middleWares));
 
 console.log(store);
 
