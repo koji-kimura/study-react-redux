@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 import { Provider } from "react-redux";
-import App from "./contaners/App";
+import App from "./containers/App";
 
 const middleWares = [thunk];
 

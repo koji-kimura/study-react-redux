@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const plus = num => {
   return {
     type: "PLUS",
@@ -16,13 +18,20 @@ export const minus = num => {
   };
 };
 
-export const AsyncMinus = num => {
-  setTimeout(() => {
-    return {
-      type: "MINUS",
-      payload: {
-        num: num
-      }
-    };
-  }, 1000);
+export const asyncMinus = num => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch({
+        type: "MINUS",
+        payload: {
+          num: num
+        }
+      });
+    }, 1000);
+  };
 };
+
+const url = "https://api.myjson.com/bins/159wgn";
+axios.get(url).then(res => {
+  console.logg(res.data);
+});
